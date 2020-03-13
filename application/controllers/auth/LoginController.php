@@ -7,7 +7,6 @@ class LoginController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if (is_logged_in() != NULL) redirect('/');
 		$this->load->model("User", "user");
 	}
 
@@ -18,6 +17,7 @@ class LoginController extends CI_Controller
 
 	public function login()
 	{
+		if (is_logged_in() != NULL) redirect('/');
 		if (!$this->validateForm()) {
 			dd("Failed Login Email and Password Required");
 		}
