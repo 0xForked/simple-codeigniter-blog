@@ -18,9 +18,9 @@
 								<th scope="col">#</th>
 								<th scope="col">Title</th>
 								<th scope="col">Posted By</th>
-								<th scope="col">Created At</th>
 								<th scope="col">Category</th>
-								<th scope="col">Action</th>
+								<th scope="col">Created At</th>
+								<th scope="col" width="200">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -30,11 +30,11 @@
 								<th scope="row"><?= $index ?></th>
 								<td><?= $article->title ?></td>
 								<td><?= $article->user_name ?></td>
-								<td><?= date("Y/m/d H:i:s", $article->created_at)?></td>
 								<td><?= $article->category_title ?></td>
+								<td><?= date("d M Y - H:i", $article->created_at)?></td>
 								<th scope="col">
-									<a href="<?= base_url() ?>articles/1/edit" class="btn btn-secondary">Edit</a>
-									<button class="btn btn-danger">Delete</button>
+									<a href="<?= base_url() ?>articles/<?= $article->id ?>/edit" class="btn btn-secondary">Edit</a>
+									<a href="<?=base_url()?>articles/<?= $article->id ?>/delete" class="btn btn-danger">Delete</a>
 								</th>
 							</tr>
 								<?php $index++; ?>

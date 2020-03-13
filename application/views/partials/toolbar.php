@@ -13,7 +13,7 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="<?= base_url() ?>">Home</a>
 			</li>
 			<?php if (logged_in_session()->loggin_status != NULL || logged_in_session()->login_status == TRUE) : ?>
@@ -29,16 +29,14 @@
 			<?php endif; ?>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
 		<?php if (logged_in_session()->login_status == NULL || logged_in_session()->login_status != TRUE) : ?>
 		<a href="<?= base_url() ?>login" class="btn btn-primary ml-3">Log In</a>
 		<?php endif; ?>
-
 		<?php if (logged_in_session()->login_status == TRUE) : ?>
 		<a href="<?= base_url() ?>logout" class="btn btn-primary ml-3">Logout</a>
 		<?php endif; ?>
-
 	</div>
 </nav>

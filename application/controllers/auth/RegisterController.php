@@ -7,6 +7,7 @@ class RegisterController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (is_logged_in() != NULL) redirect('/');
 		$this->load->model("User", 'user');
 	}
 

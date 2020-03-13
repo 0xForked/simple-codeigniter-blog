@@ -14,3 +14,11 @@ if(!function_exists("logged_in_session")) {
 		return (Object) $ci->session;
 	}
 }
+
+
+if(!function_exists("is_logged_in")) {
+	function is_logged_in()
+	{
+		return logged_in_session()->login_status;
+	}
+}

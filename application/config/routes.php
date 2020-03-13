@@ -56,17 +56,20 @@ $route['logout'] = 'auth/LoginController/logout';
 $route['register']["GET"] = 'auth/RegisterController';
 $route['register']["POST"] = 'auth/RegisterController/register';
 
-
 $route['categories']['GET'] = 'CategoryController';
 $route['categories']['POST'] = 'CategoryController/store';
 $route['categories/update']['POST'] = 'CategoryController/update';
 $route['categories/(:num)/show']['GET'] = 'CategoryController/show/$1';
-$route['categories/(:num)/delete']['GET'] = 'CategoryController/delete/$1';
+$route['categories/(:num)/delete']['GET'] = 'CategoryController/destroy/$1';
 
 $route['articles']['GET'] = 'ArticleController';
 $route['articles']['POST'] = 'ArticleController/store';
 $route['articles/add'] = 'ArticleController/create';
-$route['articles/(:num)/edit'] = 'ArticleController/edit/$1';
+$route['articles/(:num)/edit']['GET'] = 'ArticleController/edit/$1';
+$route['articles/update']['POST'] = 'ArticleController/update';
+$route['articles/(:num)/delete']['GET'] = 'ArticleController/destroy/$1';
+
+$route['(:any)']['GET'] = 'HomeController/detail/$1';
 
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = '';

@@ -24,7 +24,7 @@ class Category extends CI_Model
 		return $this->db->where('id', $id)->update('categories', $data);
 	}
 
-	public function destroy($id)
+	public function delete($id)
 	{
 		return $this->db->delete('categories', array('id' => $id));
 	}

@@ -7,6 +7,7 @@ class CategoryController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (is_logged_in() == NULL) redirect('login');
 		$this->load->model("Category", 'category');
 	}
 
@@ -55,9 +56,9 @@ class CategoryController extends CI_Controller
 		redirect("categories");
 	}
 
-	public function delete($id)
+	public function destroy($id)
 	{
-		$category = $this->category->destroy($id);
+		$category = $this->category->delete($id);
 		if (!$category) {
 			dd("Failed delete an category");
 		}
